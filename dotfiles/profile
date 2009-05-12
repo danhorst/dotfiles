@@ -30,6 +30,10 @@ alias gsd='git-svn dcommit'
 alias gsf='git-svn fetch'
 alias gsr='git-svn rebase'
 
+alias ec='mate ~/bin/cheat'
+alias ep='mate ~/bin/dotfiles'
+alias es='mate ~/bin/shell'
+
 . ~/bin/dotfiles/lightsky
 
 function parse_git_branch() {
