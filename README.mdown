@@ -1,0 +1,7 @@
+Purpose
+=======
+This repository is a collection of scripts and configruation files I use in my day to day workflow. Collecting them in this fashion eases the transition from workstation to workstation.
+
+Installation
+============
+This repository is intended to be installed as ~/bin/

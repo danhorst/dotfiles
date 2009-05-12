@@ -1,0 +1,22 @@
+--- 
+vi: "Edit\r\n\
+  dd  delete line\r\n\
+  yy p  copy and past a line\r\n\
+  \r\n\
+  Navigation\r\n\
+  h j k l left, down, up right, one character/line at a time\r\n\
+  w b e  next word, back word, end of word\r\n\
+  gg  beginning of file\r\n\
+  GG  end of File\r\n\
+  0  first column in a line\r\n\
+  ^ beginning of line\r\n\
+  $ end of line\r\n\
+  \r\n\
+  File\r\n\
+  :u undo\r\n\
+  :q quit\r\n\
+  :q! force quit\r\n\
+  :wq write, quit\r\n\
+  :/<string>  Search for next occurrence of <string>\r\n\
+  :?<string> Search for previous occurrence of <string>\r\n\
+  :%s/<str_a>/<str_b>/g Replace all str_a with str_b in current buffer"
