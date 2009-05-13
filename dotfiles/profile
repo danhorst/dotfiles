@@ -4,7 +4,7 @@
 PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin"
 export PATH
 
-export GREP_OPTIONS='--color=auto' 
+export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='7;31'
 
 export VISUAL='mate -w'
@@ -30,9 +30,9 @@ alias gsd='git-svn dcommit'
 alias gsf='git-svn fetch'
 alias gsr='git-svn rebase'
 
-alias ec='mate ~/bin/cheat'
-alias ep='mate ~/bin/dotfiles'
-alias es='mate ~/bin/shell'
+alias ec='mate ~/bin/cheat/'
+alias ep='mate ~/bin/dotfiles/'
+alias es='mate ~/bin/script/'
 
 . ~/bin/dotfiles/lightsky
 
