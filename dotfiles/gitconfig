@@ -1,15 +1,16 @@
 [user]
-	name = danh
-	email = danh@lightsky.com
+  name  = danh
+  email = danhorst@gmail.com
 [alias]
   ci = commit -v -a
   st = status
   rs = reset --hard HEAD
   ba = branch -a
-  ap = add --patch
   co = checkout
+  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; mate `f`"
+  unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [branch]
   autosetupmerge = true
 [color]
