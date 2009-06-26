@@ -1,1 +1,1 @@
-source ~/Library/bin/git-completion.bash
+source ~/bin/dotfiles/git-completion.bash
