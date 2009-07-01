@@ -4,7 +4,7 @@ require 'highline/import'
 
 DOTFILES             = {'profile' => 'bashrc','gitconfig' => 'gitconfig'}
 HOME_DIRECTORY       = "/home/#{`whoami`.gsub!(/\n/, "")}/"
-REPOSITORY_DIRECTORY = "#{HOME_DIRECTORY}bin/dotfiles/"
+REPOSITORY_DIRECTORY = "#{HOME_DIRECTORY}.config/repository/dotfiles/"
 
 def symlink(source, destination)
   `ln -s #{REPOSITORY_DIRECTORY}#{source} #{HOME_DIRECTORY}.#{destination}`
