@@ -1,5 +1,0 @@
-<<<<<<< HEAD:dotfiles/bashrc
-source ~/bin/dotfiles/git-completion.bash
-=======
-source ~/bin/git-completion.bash
->>>>>>> Added git completion files:dotfiles/bashrc
