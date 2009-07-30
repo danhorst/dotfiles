@@ -15,4 +15,10 @@ set ic
 set hls
 
 " Change colorscheme from default to delek
-colorscheme delek
+colorscheme darkblue 
+
+" Hide file browser
+let g:explHideFiles='^.'
+
+" Enable wildmenu
+set wildmenu
