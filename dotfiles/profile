@@ -14,7 +14,15 @@ alias start='$SCRIPT_HOME/start.sh'
 alias fstart='$FEDORA_HOME/tomcat/bin/startup.sh'
 alias fstop='$FEDORA_HOME/tomcat/bin/shutdown.sh'
 
-alias ru='cd ~/Projects/RU_automation'
+alias apache_start='/usr/sbin/apache2ctl start'
+alias apache_restart='/usr/sbin/apache2ctl graceful'
+alias apache_stop='/usr/sbin/apache2ctl stop'
+
+alias ack='ack-grep'
+alias tz='tar -xzvf'
+alias open='gnome-open'
+
+alias ru='cd ~/Projects/RU_automation/trunk'
 
 alias ss='ruby script/server'
 alias console='ruby script/console'
@@ -27,9 +35,9 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gamd='git commit -a --amend'
 
-alias gsd='git-svn dcommit'
-alias gsf='git-svn fetch'
-alias gsr='git-svn rebase'
+alias gsd='git svn dcommit --username dbrubak1'
+alias gsf='git svn fetch'
+alias gsr='git svn rebase'
 
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(git::\1)/'
