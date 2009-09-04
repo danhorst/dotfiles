@@ -21,12 +21,15 @@ alias apache_stop='/usr/sbin/apache2ctl stop'
 alias ack='ack-grep'
 alias tz='tar -xzvf'
 alias open='gnome-open'
+alias bm='~/.config/repository/script/bookmark.sh'
 
 alias ru='cd ~/Projects/RU_automation/trunk'
+alias gill='cd ~/Projects/gill_cgi'
+alias ssha='ssh rails@ambrosiana'
 
 alias ss='ruby script/server'
 alias console='ruby script/console'
-alias rebuild='rake db:drop && rake db:create && rake db:migrate && rake db:fixtures:load && rake db:test:prepare && rake'
+alias rebuild='rake db:migrate:reset && rake db:fixtures:load && rake db:test:prepare && rake'
 
 alias gst='git status'
 alias gd='git diff | mate'
