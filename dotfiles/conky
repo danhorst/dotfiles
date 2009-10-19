@@ -1,0 +1,65 @@
+#Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+background no
+#own_window_type override
+#own_window_transparent yes
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer yes
+use_xft yes
+
+# Update interval in seconds
+update_interval 3.0
+
+# Minimum size of text area
+minimum_size 400 5
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+uppercase no # set to yes if you want all text to be in uppercase
+#font arial
+
+# Stippled borders?
+stippled_borders 3
+
+# border margins
+border_margin 9
+
+# border width
+border_width 10
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color white
+default_shade_color black
+default_outline_color grey90
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 10
+gap_y 20
+
+override_utf8_locale yes
+xftfont Terminus:size=8
+xftalpha 0.8
+
+text_buffer_size 1024
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+${execi 30 /home/dbrubak1/.config/repository/script/todo.sh -d /home/dbrubak1/.config/repository/script/todo.cfg projectview}

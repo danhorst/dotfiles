@@ -110,4 +110,9 @@ map <leader>s :call ToggleScratch()<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 " function for clearing search pattern
-map <leader>c :let @/ = ""<CR>
+map <leader>z :let @/ = ""<CR>
+
+" external cut copy paste mapping
+map <leader>x "+x<CR>
+map <leader>c "+y<CR>
+map <leader>v "+gP<CR>

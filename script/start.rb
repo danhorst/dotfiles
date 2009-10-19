@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 #`xcompmgr`
-`workrave`
-`firefox`
-`pidgin`
+#`workrave`
+#`firefox`
+#`pidgin`
+`conky & disown`

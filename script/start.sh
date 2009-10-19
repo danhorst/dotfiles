@@ -1,6 +1,7 @@
 #!/bin/sh
 export PATH="/usr/bin:$PATH"
-xcompmgr
-workrave
-firefox
-pidgin
+#xcompmgr && disown
+#workrave && disown
+conky & disown
+firefox & disown
+pidgin & disown
