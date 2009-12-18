@@ -76,6 +76,10 @@ augroup mkd
  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 augroup END
 
+augroup wiki
+ autocmd BufRead *.wiki set ft=confluencewiki 
+augroup END
+
 " code completion in gvim
 set incsearch
 
@@ -116,3 +120,5 @@ map <leader>z :let @/ = ""<CR>
 map <leader>x "+x<CR>
 map <leader>c "+y<CR>
 map <leader>v "+gP<CR>
+
+autocmd BufWritePre * :%s/s+$//e

@@ -9,6 +9,7 @@
   co = checkout
   unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; mate `f`"
   unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [apply]
   whitespace = nowarn
 [branch]
