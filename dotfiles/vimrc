@@ -15,6 +15,9 @@ syntax on
 "i Turn on line numbering. Turn it off with 'set nonu'
 set nu
 
+" Allow for easy creation of hidden buffers
+set hidden
+
 " Change <Leader>
 let mapleader = ","
 
@@ -80,12 +83,14 @@ augroup wiki
  autocmd BufRead *.wiki set ft=confluencewiki 
 augroup END
 
-" code completion in gvim
+"code completion in gvim
 set incsearch
 
 "Configure ack search
-set grepprg=ack
-set grepformat=%f:%l:%m
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"set grepprg=ack
+"set grepformat=%f:%l:%m
+
 
 " Configure FuzzyFinderTextmate
 let g:fuzzy_ignore = "*.log"

@@ -37,16 +37,11 @@ alias nbm='wc -l ~/Dropbox/Files/links'
 alias vbm='vim ~/Dropbox/Files/links'
 
 alias hm='cd ~/'
-alias doc='cd ~/Documents/Documentation'
-alias ti='cd ~/Documents/TeamIntranet'
-alias ru='cd ~/Projects/RU_automation/trunk'
-alias mm='cd ~/Projects/medieval_micro/trunk'
-alias xur='cd ~/Projects/xur/trunk'
-alias gill='cd ~/Projects/gill_cgi'
-alias ssha='ssh rails@ambrosiana'
-alias ssht='ssh dbrubak1@thaddaeus.library.nd.edu'
+
+. ~/.config/dotfiles/nd
 
 alias ss='ruby script/server'
+alias ssd='ruby script/server --debugger'
 alias console='ruby script/console'
 alias rreset='rake db:migrate:reset && rake db:fixtures:load && rake db:test:prepare && rake'
 alias rebuild='rake db:drop db:create db:migrate db:fixtures:load db:test:prepare'
@@ -58,6 +53,8 @@ alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gamd='git commit -a --amend'
+alias gl='git log --pretty=oneline --abbrev-commit -6'
+alias glf='git log --pretty=oneline --abbrev-commit'
 
 alias gsd='git svn dcommit --username dbrubak1'
 alias gsf='git svn fetch'
@@ -96,6 +93,7 @@ export ORIGINAL_PATH=$PATH
 function use_system_ruby {
  export MY_RUBY_HOME=/usr/local/bin
  export GEM_HOME=/usr/lib/ruby/gems/1.8
+ #update_passenger_conf "system"
  update_path
 }
 
@@ -143,6 +141,7 @@ function install_ree_20090421 {
 function use_ruby_191 {
  export MY_RUBY_HOME=~/.ruby_versions/ruby_191p129
  export GEM_HOME=~/.gem/ruby/1.9.1p129
+ #update_passenger_conf "191p129"
  update_path
 }
 
@@ -154,6 +153,7 @@ function install_ruby_191 {
 function use_ruby_191_376 {
  export MY_RUBY_HOME=~/.ruby_versions/ruby_191p376
  export GEM_HOME=~/.gem/ruby/1.9.1p376
+ #update_passenger_conf "191p376"
  update_path
 }
 
@@ -181,6 +181,13 @@ function install_ruby_from_source {
 
 function install_rake {
   gem install -q --no-ri --no-rdoc rake
+}
+
+function update_passenger_conf {
+  local ruby_version=$1
+  local passenger_conf_path="/home/dbrubak1/.ruby_versions/passenger"
+  ln -s -f $passenger_conf_path/$ruby_version.conf $passenger_conf_path/passenger.conf
+  ln -s -f $passenger_conf_path/$ruby_version.load $passenger_conf_path/passenger.load
 }
 
 function update_path {
