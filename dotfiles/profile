@@ -139,8 +139,8 @@ function install_ree_20090421 {
 }
 
 function use_ruby_191 {
- export MY_RUBY_HOME=~/.ruby_versions/ruby_191p129
- export GEM_HOME=~/.gem/ruby/1.9.1p129
+ export MY_RUBY_HOME=~/.ruby_versions/ruby-1.9.1-p129
+ export GEM_HOME=~/.gem/ruby/1.9.1-p129
  #update_passenger_conf "191p129"
  update_path
 }
@@ -151,8 +151,8 @@ function install_ruby_191 {
 }
 
 function use_ruby_191_376 {
- export MY_RUBY_HOME=~/.ruby_versions/ruby_191p376
- export GEM_HOME=~/.gem/ruby/1.9.1p376
+ export MY_RUBY_HOME=~/.ruby_versions/ruby-1.9.1-p376
+ export GEM_HOME=~/.gem/ruby/1.9.1-p376
  #update_passenger_conf "191p376"
  update_path
 }

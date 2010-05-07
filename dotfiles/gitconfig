@@ -1,5 +1,5 @@
 [user]
-  name  = danh
+  name  = "Dan Brubaker Horst"
   email = danhorst@gmail.com
 [alias]
   ci = commit -v -a
