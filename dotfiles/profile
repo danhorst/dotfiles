@@ -24,6 +24,8 @@ alias fstop='$FEDORA_HOME/tomcat/bin/shutdown.sh'
 alias apache_start='sudo /usr/sbin/apache2ctl start'
 alias apache_restart='sudo /usr/sbin/apache2ctl graceful'
 alias apache_stop='sudo /usr/sbin/apache2ctl stop'
+alias apache_configtest='sudo /usr/sbin/apache2ctl configtest'
+alias apr='apache_restart'
 
 alias ack='ack-grep'
 alias ackt='ack-grep --text'
@@ -34,34 +36,35 @@ alias xclip='xclip -selection c'
 
 alias want='~/.config/repository/script/want.sh'
 alias bm='~/.config/repository/script/bookmark.sh'
-alias nbm='wc -l ~/Dropbox/Files/links'
-alias vbm='vim ~/Dropbox/Files/links'
+alias nbm='wc -l ~/Dropbox/Docs/links'
+alias vbm='vim ~/Dropbox/Docs/links'
 
 alias hm='cd ~/'
 
 . ~/.config/dotfiles/nd
 
 function ss {
-  if [ -e script/rails ]; then
-    script/rails server $@
-  else
+  if [ -f script/server ]; then
     script/server $@
+  else
+   rails server $@
   fi
 }
 function sc {
-  if [ -e script/rails ]; then
-    script/rails console $@
-  else
+  if [ -f script/console ]; then
     script/console $@
+  else
+    rails console $@
   fi
 }
 function sg {
-  if [ -e script/rails ]; then
-    script/rails generate $@
-  else
+  if [ -e script/generate ]; then
     script/generate $@
+  else
+    rails generate $@
   fi
 }
+alias ssr='ss -e dev_remote'
 alias ssd='ruby script/server --debugger'
 alias console='ruby script/console'
 alias rreset='rake db:migrate:reset && rake db:fixtures:load && rake db:test:prepare && rake'

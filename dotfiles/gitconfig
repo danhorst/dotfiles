@@ -1,6 +1,6 @@
 [user]
   name  = "Dan Brubaker Horst"
-  email = danhorst@gmail.com
+  email = dan.brubaker.horst@gmail.com
 [alias]
   ci = commit -v -a
   st = status
