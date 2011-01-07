@@ -1,13 +1,13 @@
 [user]
   name  = "Dan Brubaker Horst"
-  email = dan.brubaker.horst@gmail.com
+  email = dbrubak1@nd.edu
 [alias]
   ci = commit -v -a
   st = status
   rs = reset --hard HEAD
   ba = branch -a
   co = checkout
-  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; mate `f`"
+  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [apply]
@@ -31,3 +31,5 @@
   added = yellow
   changed = green
   untracked = magenta  
+[core]
+	excludesfile = /home/dbrubak1/.gitignore
