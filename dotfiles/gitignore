@@ -1,4 +1,5 @@
 .DS\_Store
 *.swp
+tmp/tags
 ctags
 cscope.*

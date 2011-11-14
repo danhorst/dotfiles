@@ -1,4 +1,1 @@
-source ~/.vimrc
-set columns=200
-set lines=100
-
+source ~/.vim/gvimrc

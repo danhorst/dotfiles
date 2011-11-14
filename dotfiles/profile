@@ -18,8 +18,9 @@ alias la='ls -la'
 
 alias start='$SCRIPT_HOME/start.sh'
 
-alias fstart='$FEDORA_HOME/tomcat/bin/startup.sh'
-alias fstop='$FEDORA_HOME/tomcat/bin/shutdown.sh'
+alias mysql_stop='/etc/init.d/mysql stop'
+alias mysql_start='/etc/init.d/mysql start'
+alias mysql_status='/etc/init.d/mysql status'
 
 alias apache_start='sudo /usr/sbin/apache2ctl start'
 alias apache_restart='sudo /usr/sbin/apache2ctl graceful'
@@ -27,62 +28,72 @@ alias apache_stop='sudo /usr/sbin/apache2ctl stop'
 alias apache_configtest='sudo /usr/sbin/apache2ctl configtest'
 alias apr='apache_restart'
 
+alias lamp_stop='apache_stop mysql_stop'
+
+alias v='vim'
 alias ack='ack-grep'
 alias ackt='ack-grep --text'
 alias tz='tar -xzvf'
 alias open='gnome-open'
 alias tidyx='tidy -mi -xml -utf8'
 alias xclip='xclip -selection c'
-alias ct='ctags -R -f ctags --exclude=.git --exclude=log * ~/.rvm/gems/ruby-1.8.7-p302/*'
+alias ct='ctags -R -f ctags --exclude=.git --exclude=log --extra=+f --langdef=file --langmap='file:.rb.erb''
+#alias ct='ctags -R -f ctags --exclude=.git --exclude=log * ~/.rvm/gems/ruby-1.8.7-p302/*'
 
 alias want='~/.config/repository/script/want.sh'
 alias bm='~/.config/repository/script/bookmark.sh'
-alias nbm='wc -l ~/Dropbox/Docs/links'
-alias vbm='vim ~/Dropbox/Docs/links'
+alias nbm='wc -l ~/Dropbox/Elements/links.txt'
+alias vbm='vim ~/Dropbox/Elements/links.txt'
 
 alias hm='cd ~/'
 
 . ~/.config/dotfiles/nd
 
-function ss {
+function rr {
   if [ -f script/server ]; then
     script/server $@
   else
    rails server $@
   fi
 }
-function sc {
+function console {
   if [ -f script/console ]; then
     script/console $@
   else
     rails console $@
   fi
 }
-function sg {
+function rg {
   if [ -e script/generate ]; then
     script/generate $@
   else
     rails generate $@
   fi
 }
-alias ssr='ss -e dev_remote'
-alias ssd='ruby script/server --debugger'
-alias console='ruby script/console'
+alias rrr='ss -e dev_remote'
+alias rrc='ss -e dev_cached'
+alias rrd='ruby script/server --debugger'
 alias rreset='rake db:migrate:reset && rake db:fixtures:load && rake db:test:prepare && rake'
 alias rebuild='rake db:drop db:create db:migrate db:seed'
 alias ts='bundle exec thin start'
+alias r='bundle exec rake'
 
-alias gst='git status'
-alias ga='git add . && git status'
-alias gd='git diff | vim'
-alias gca='git commit -v -a'
+alias ga='git add . && gst'
+alias gamd='git commit -a --amend'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gamd='git commit -a --amend'
-alias gl='git log --pretty=oneline --abbrev-commit -12'
-alias glf='git log --pretty=oneline --abbrev-commit'
+alias gbl='git branch -l'
+alias gca='git commit -v -a'
+alias gd='git diff | vim'
+alias gl='git log --pretty=format:"%h — %s %d %n          %an, %ar" --graph -18'
+alias glf='git log --pretty=format:"%h — %s %d %n          %an, %ar" --graph'
+alias glp='git log --pretty=format:"%h — %s %d %n          %an, %ar" --graph -18 -p'
+alias gmt='git mergetool'
+alias gpo='git push origin master'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
+alias gsh='git show'
+alias gst='git status --ignore-submodules=dirty'
 
 alias gsd='git svn dcommit --username dbrubak1'
 alias gsf='git svn fetch'
@@ -105,7 +116,7 @@ function parse_svn_repository_root() {
   svn info 2>/dev/null | grep -e '^Repository Root:*' | sed -e 's#^Repository Root: *\(.*\)#\1\/#g '
 }
 function parse_scm_branch() {
-  local value=$(parse_git_branch) 
+  local value=$(parse_git_branch)
   if [ -z "$value" ]; then
     local value=$(parse_svn_branch)
   fi
@@ -118,6 +129,8 @@ export PS1="\[\033[00m\]\u@\h\[\033[01;34m\] \w \[\033[31m\]\$(parse_scm_branch)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # quick hack to load rvmrc if a new tab is opened in a folder containing a local rvmrc
-if [ -e .rvmrc ]; then
-  source .rvmrc
-fi
+#if [ -e .rvmrc ]; then
+#  source .rvmrc
+#fi
+
+export LESS="-R"
