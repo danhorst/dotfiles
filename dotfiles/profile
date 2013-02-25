@@ -1,7 +1,6 @@
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/1.8/bin:$JAVA_HOME:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin:/opt/oracle/instantclient:$HOME/bin:/opt/vagrant/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/oracle/instantclient:$HOME/bin:/opt/vagrant/bin"
 export PATH
 
-export SCRIPT_HOME='/home/dbrubak1/.config/repository/script'
 export XDG_DATA_HOME='/home/dbrubak1/.local/share'
 
 export GREP_OPTIONS='--color=auto'
@@ -15,6 +14,15 @@ export EDITOR='/usr/bin/vim'
 
 alias ll='ls -l'
 alias la='ls -la'
+
+export TODOTXT_DEFAULT_ACTION=ls
+alias t="~/bin/todo.sh"
+alias ta="~/bin/todo.sh add"
+alias td="~/bin/todo.sh do"
+alias tp="~/bin/todo.sh projectview"
+source ~/bin/todo_completion
+complete -F _todo t
+alias vtd='vim ~/Dropbox/Apps/todo/todo.txt'
 
 alias v='vim'
 alias ack='ack-grep'
@@ -32,8 +40,6 @@ alias want='~/.config/dotfiles/script/want.sh'
 alias bm='~/.config/dotfiles/script/bookmark.sh'
 alias nbm='wc -l ~/Dropbox/Elements/links.txt'
 alias vbm='vim ~/Dropbox/Elements/links.txt'
-
-alias hm='cd ~/'
 
 . ~/Documents/ND/Utility/nd.sh
 
@@ -64,20 +70,21 @@ alias rrd='ruby script/server --debugger'
 alias rreset='rake db:migrate:reset && rake db:fixtures:load && rake db:test:prepare && rake'
 alias rebuild='rake db:drop db:create db:migrate db:seed'
 
-alias b='bundle exec'
-alias r='b rake'
-alias g='b guard'
-alias ts='b thin start'
-alias mm='middleman'
+alias bx='bundle exec'
+alias r='bx rake'
+alias g='bx guard'
+alias ts='bx thin start'
+alias mm='bundle exec middleman'
 
 alias ga='git add . && gst'
 alias gamd='git commit -a --amend'
-alias gb='git branch'
+alias gb='git branch -vv'
 alias gba='git branch -a'
 alias gbl='git branch -l'
 alias gca='git commit -v -a'
 alias gd='git diff'
 alias gdh='git diff HEAD'
+alias gH='git reset --hard HEAD'
 alias gl='git lg'
 alias glp='gl -p'
 alias gmt='git mergetool'
@@ -91,31 +98,11 @@ alias gsd='git svn dcommit --username dbrubak1'
 alias gsf='git svn fetch'
 alias gsr='git svn rebase'
 
-alias t="$SCRIPT_HOME/todo.sh -d $SCRIPT_HOME/todo.cfg"
-alias ta="$SCRIPT_HOME/todo.sh -d $SCRIPT_HOME/todo.cfg add"
-alias tp="$SCRIPT_HOME/todo.sh -d $SCRIPT_HOME/todo.cfg projectview"
+source ~/bin/git-completion.sh
+source ~/bin/git-prompt.sh
 
-function parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(git::\1)/'
-}
-function parse_svn_branch() {
-  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk -F / '{print "(svn::"$1 "/" $2 ")"}'
-}
-function parse_svn_url() {
-  svn info 2>/dev/null | grep -e '^URL*' | sed -e 's#^URL: *\(.*\)#\1#g '
-}
-function parse_svn_repository_root() {
-  svn info 2>/dev/null | grep -e '^Repository Root:*' | sed -e 's#^Repository Root: *\(.*\)#\1\/#g '
-}
-function parse_scm_branch() {
-  local value=$(parse_git_branch)
-  if [ -z "$value" ]; then
-    local value=$(parse_svn_branch)
-  fi
-  echo "$value"
-}
-
-export PS1="\[\033[00m\]\u@\h\[\033[01;34m\] \w \[\033[31m\]\$(parse_scm_branch) \[\033[00m\]$\[\033[00m\] "
+export GIT_PS1_SHOWDIRTYSTATE=1
+export PS1='\W\[\033[31m\]$(__git_ps1 " %s")\[\033[00m\] \$ '
 export LESS="-R"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
