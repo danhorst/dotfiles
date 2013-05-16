@@ -1,4 +1,4 @@
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/oracle/instantclient:$HOME/bin:/opt/vagrant/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/oracle/instantclient:$HOME/bin:/opt/vagrant/bin:/opt/fits"
 export PATH
 
 export XDG_DATA_HOME='/home/dbrubak1/.local/share'
@@ -31,7 +31,7 @@ alias tz='tar -xzvf'
 alias open='gnome-open'
 alias tidyx='tidy -mi -xml -utf8'
 alias xclip='xclip -selection c'
-alias jar='java -jar'
+alias jst='java -XX:+CMSClassUnloadingEnabled -XX:PermSize=64M -XX:MaxPermSize=128M -jar start.jar'
 alias ct='ctags -R -f ctags --exclude=.git --exclude=log --extra=+f --langdef=file --langmap='file:.rb.erb''
 
 alias pngc='pngcrush -rem alla -reduce -brute'
@@ -102,7 +102,7 @@ source ~/bin/git-completion.sh
 source ~/bin/git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\W\[\033[31m\]$(__git_ps1 " %s")\[\033[00m\] \$ '
+export PS1='\w\[\033[31m\]$(__git_ps1 " %s")\[\033[00m\] \$ '
 export LESS="-R"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
