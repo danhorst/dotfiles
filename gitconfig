@@ -34,4 +34,10 @@
   changed = green
   untracked = magenta
 [core]
-  excludesfile = /home/dbrubak1/.gitignore
+  excludesfile = /opt/boxen/config/git/gitignore
+[credential]
+  helper = /opt/boxen/bin/boxen-git-credential
+[hub]
+  protocol = https
+[push]
+  default = current
