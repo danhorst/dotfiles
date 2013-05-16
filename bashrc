@@ -1,1 +1,0 @@
-source ~/Library/bin/git-completion.bash
