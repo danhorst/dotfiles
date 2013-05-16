@@ -1,14 +1,17 @@
 [user]
-  name  = danh
-  email = danhorst@gmail.com
+  name  = "Dan Brubaker Horst"
+  email = dan.brubaker.horst@gmail.com
 [alias]
   ci = commit -v -a
   st = status
   rs = reset --hard HEAD
   ba = branch -a
   co = checkout
-  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; mate `f`"
+  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  lg = log --graph --pretty=format:'%C(red)%h%Creset — %C(yellow)%s%Creset %d%n          %an, %C(green)(%ar)%Creset'
+  forget = update-index --assume-unchanged
+  remember = update-index --no-assume-unchanged
 [apply]
   whitespace = nowarn
 [branch]
@@ -29,4 +32,6 @@
 [color "status"]
   added = yellow
   changed = green
-  untracked = magenta  
+  untracked = magenta
+[core]
+  excludesfile = /home/dbrubak1/.gitignore
