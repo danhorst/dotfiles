@@ -2,8 +2,6 @@ alias ll='ls -l'
 alias la='ls -la'
 
 alias v='vim'
-alias ack='ack-grep'
-alias ackt='ack-grep --text'
 alias tz='tar -xzvf'
 alias tidyx='tidy -mi -xml -utf8'
 alias jst='java -XX:+CMSClassUnloadingEnabled -XX:PermSize=64M -XX:MaxPermSize=128M -jar start.jar'
