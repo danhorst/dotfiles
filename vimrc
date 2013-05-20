@@ -34,3 +34,17 @@ map <leader>z :let @/ = ""<CR>
 
 " Remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" Strip trailing whitespace   
+function! <SID>StripTrailingWhitespace()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
