@@ -35,3 +35,5 @@ alias gst='git status --ignore-submodules=dirty'
 alias gsd='git svn dcommit --username dbrubak1'
 alias gsf='git svn fetch'
 alias gsr='git svn rebase'
+
+alias ia="open $1 -a /Applications/iA\ Writer.app"
