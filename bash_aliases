@@ -15,7 +15,7 @@ alias ts='bx thin start'
 alias mm='bundle exec middleman'
 
 alias ga='git add . && gst'
-alias gamd='git commit -a --amend'
+alias gamd='git commit -a --amend --no-edit'
 alias gb='git branch -vv'
 alias gba='git branch -a'
 alias gbl='git branch -l'
