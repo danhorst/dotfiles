@@ -6,6 +6,7 @@ let mapleader=","
 
 set autoindent    " Always set autoindenting on
 set copyindent    " Copy the previous indentation on autoindenting
+set expandtab     " Use tabs instead of spaces
 set hidden        " Allow buffers to be hidden
 set hlsearch      " Highlight search terms
 set ignorecase    " Ignore case when searching
