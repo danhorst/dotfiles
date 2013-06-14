@@ -37,6 +37,3 @@ alias gsf='git svn fetch'
 alias gsr='git svn rebase'
 
 alias ia="open $1 -a /Applications/iA\ Writer.app"
-
-# You'll probably have to use $9 instead of $10. My group name is weird.
-alias cheats="ls -l ${BOXEN_SRC_DIR}/dotfiles/cheat | awk '{print $10}' | sed -e 's/\.[a-zA-Z]*$//'"

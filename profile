@@ -1,4 +1,5 @@
 source /opt/boxen/env.sh
+PATH=$PATH:~/bin
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='7;31'
