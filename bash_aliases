@@ -14,6 +14,8 @@ alias g='bx guard'
 alias ts='bx thin start'
 alias mm='bundle exec middleman'
 
+alias rv='rbenv versions'
+
 alias ga='git add . && gst'
 alias gamd='git commit -a --amend --no-edit'
 alias gb='git branch -vv'
