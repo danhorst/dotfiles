@@ -12,7 +12,10 @@ alias bx='bundle exec'
 alias r='bx rake'
 alias g='bx guard'
 alias ts='bx thin start'
-alias mm='bundle exec middleman'
+alias mm='bx middleman'
+alias z='zeus'
+alias zs='zeus start'
+alias zz='zeus server'
 
 alias rv='rbenv versions'
 
