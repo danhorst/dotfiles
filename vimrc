@@ -36,7 +36,11 @@ map <leader>z :let @/ = ""<CR>
 " Remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-" Strip trailing whitespace   
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+" Strip trailing whitespace
 function! <SID>StripTrailingWhitespace()
   " Preparation: save last search, and cursor position.
   let _s=@/
