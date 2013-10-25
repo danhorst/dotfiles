@@ -12,6 +12,9 @@
   lg = log --graph --pretty=format:'%C(red)%h%Creset — %C(yellow)%s%Creset %d%n          %an, %C(green)(%ar)%Creset'
   forget = update-index --assume-unchanged
   remember = update-index --no-assume-unchanged
+  branch-current = rev-parse --symbolic-full-name --abbrev-ref HEAD
+  number-of-commits-since-master = "! sh -c 'git log master..`git branch-current` --oneline | wc -l | tr -d \" \"'"
+  squash = "! sh -c 'git rebase --interactive HEAD~`git number-of-commits-since-master`'"
 [apply]
   whitespace = nowarn
 [branch]
