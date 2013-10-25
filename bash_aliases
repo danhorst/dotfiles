@@ -36,6 +36,7 @@ alias gmt='git mergetool'
 alias gpo='git push origin master'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
+alias grm='git ls-files -d | xargs git rm; gst'
 alias gsh='git show'
 alias gst='git status --ignore-submodules=dirty'
 
