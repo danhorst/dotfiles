@@ -9,6 +9,7 @@ alias ct='ctags -R -f ctags --exclude=.git --exclude=log --extra=+f --langdef=fi
 alias pngc='pngcrush -rem alla -reduce -brute'
 
 alias bx='bundle exec'
+alias bi='bundle install -j4'
 alias r='bx rake'
 alias g='bx guard'
 alias ts='bx thin start'
