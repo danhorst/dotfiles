@@ -5,6 +5,7 @@ alias v='vim'
 alias tz='tar -xzvf'
 alias tidyx='tidy -mi -xml -utf8'
 alias jst='java -XX:+CMSClassUnloadingEnabled -XX:PermSize=64M -XX:MaxPermSize=128M -jar start.jar'
+alias kill-jetty='ps ax | grep jetty | grep -v grep | sed "s/^ *//g" | cut -f1 -d " " | xargs kill -9'
 alias ct='ctags -R -f ctags --exclude=.git --exclude=log --extra=+f --langdef=file --langmap='file:.rb.erb''
 alias pngc='pngcrush -rem alla -reduce -brute'
 
