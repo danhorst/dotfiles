@@ -66,3 +66,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Spell check markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+" Word completion
+set complete+=kspell
+
