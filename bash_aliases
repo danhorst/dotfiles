@@ -9,6 +9,8 @@ alias kill-jetty='ps ax | grep jetty | grep -v grep | sed "s/^ *//g" | cut -f1 -
 alias ct='ctags -R -f ctags --exclude=.git --exclude=log --extra=+f --langdef=file --langmap='file:.rb.erb''
 alias pngc='pngcrush -rem alla -reduce -brute'
 
+alias webs="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'"
+
 alias bx='bundle exec'
 alias bi='bundle install -j4'
 alias r='bx rake'
