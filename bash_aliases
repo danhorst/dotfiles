@@ -1,5 +1,6 @@
 alias ll='ls -l'
 alias la='ls -la'
+alias l1='ls -1'
 
 alias v='vim'
 alias tz='tar -xzvf'
