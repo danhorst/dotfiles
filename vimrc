@@ -31,7 +31,7 @@ set backspace=indent,eol,start
 nnoremap ; :
 
 " Clear search pattern
-map <leader>z :let @/ = ""<CR>
+nmap <silent> <leader>z :let @/ = ""<CR>
 
 " Remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
