@@ -6,7 +6,7 @@ let mapleader=","
 
 set autoindent    " Always set autoindenting on
 set copyindent    " Copy the previous indentation on autoindenting
-set expandtab     " Use tabs instead of spaces
+set expandtab     " Use spaces instead of tabs
 set hidden        " Allow buffers to be hidden
 set hlsearch      " Highlight search terms
 set ignorecase    " Ignore case when searching
@@ -74,9 +74,22 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 nnoremap \ :Ag<SPACE>
 
-" Spell check markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
+" Enable airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Writing prose is different than writing code
+function! <SID>SetUpMarkdown()
+  setlocal noexpandtab
+  setlocal nonumber
+  setlocal spell
+  setlocal softtabstop=2
+	setlocal tabstop=2
+  colorscheme pencil
+endfunction
+autocmd BufRead,BufNewFile *.md :call <SID>SetUpMarkdown()
 
 " Word completion
 set complete+=kspell
 
+" Appearance
+set guifont=Fira\ Mono:h16

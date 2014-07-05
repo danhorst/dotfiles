@@ -1,3 +1,4 @@
 .DS_Store
 dotfiles/lightsky
 bin/uglifyjs
+bin/mvim
