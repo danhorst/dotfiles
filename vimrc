@@ -83,7 +83,8 @@ function! <SID>SetUpMarkdown()
   setlocal nonumber
   setlocal spell
   setlocal softtabstop=2
-	setlocal tabstop=2
+  setlocal tabstop=2
+  setlocal wrap
   colorscheme pencil
 endfunction
 autocmd BufRead,BufNewFile *.md :call <SID>SetUpMarkdown()
