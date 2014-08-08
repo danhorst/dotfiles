@@ -30,6 +30,7 @@ function rg {
 }
 
 source ~/.bash_aliases
+source ~/.go
 
 source ~/bin/git-completion.sh
 source ~/bin/git-prompt.sh
