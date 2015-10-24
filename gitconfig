@@ -7,6 +7,7 @@
   rs = reset --hard HEAD
   ba = branch -a
   co = checkout
+  delete-merged-branches = "!f() { git branch --merged master | grep -v '\\*' | cut -c3- | sort -u ; }; git branch -d `f`"
   unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   lg = log --graph --pretty=format:'%C(red)%h%Creset — %C(yellow)%s%Creset %d%n          %an, %C(green)(%ar)%Creset'
