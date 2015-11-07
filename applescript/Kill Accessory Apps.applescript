@@ -1,20 +1,19 @@
-tell application "Flux"
-  quit
-end tell
-
 tell application "Dropbox"
-  quit
+	quit
 end tell
 
 tell application "Box Sync"
-  quit
+	quit
 end tell
 
 tell application "Google Drive"
-  quit
+	quit
 end tell
 
 tell application "Todoist"
-  quit
+	quit
 end tell
 
+tell application "HipChat"
+	quit
+end tell

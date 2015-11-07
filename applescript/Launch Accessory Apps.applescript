@@ -26,3 +26,6 @@ tell application "Todoist"
 	activate
 end tell
 
+tell application "HipChat"
+	activate
+end tell
