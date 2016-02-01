@@ -12,6 +12,9 @@ alias pngc='pngcrush -rem alla -reduce -brute'
 
 alias webs="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 2999, :DocumentRoot => Dir.pwd).start'"
 
+alias bes='boxen --enable-services'
+alias bds='boxen --disable-services'
+
 alias bx='bundle exec'
 alias bi='bundle install -j4'
 alias r='bx rake'
@@ -26,18 +29,20 @@ alias zz='zeus server'
 
 alias rv='rbenv versions'
 
+alias g-='git co -'
+alias gH='git reset --hard HEAD'
 alias ga='git add . && gst'
 alias gamd='git commit -a --amend --no-edit'
 alias gb='git branch -vv'
-alias gba='git branch -a'
-alias gbl='git branch -l'
+alias gba='git branch -avv'
 alias gca='git commit -v -a'
+alias gcb='git co -b'
 alias gd='git diff'
 alias gdh='git diff HEAD'
-alias gH='git reset --hard HEAD'
 alias gl='git lg'
 alias glp='gl -p'
 alias gmt='git mergetool'
+alias gp='git pull'
 alias gpo='git push origin master'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
