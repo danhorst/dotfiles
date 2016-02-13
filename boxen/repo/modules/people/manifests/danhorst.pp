@@ -31,6 +31,7 @@ class people::danhorst {
       'graphviz',
       'git-flow',
       'go',
+      'htop',
       'pngcrush',
       'the_silver_searcher',
       'wrk',
