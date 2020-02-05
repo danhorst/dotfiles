@@ -191,6 +191,7 @@ function git_personal() {
   ln -nsf "$HOME/.gituser.personal" "$HOME/.gituser"
   ln -nsf "$HOME/.ssh/danhorst" "$HOME/.ssh/id_rsa"
   ln -nsf "$HOME/.ssh/danhorst.pub" "$HOME/.ssh/id_rsa.pub"
+  echo "Current git user:"
   cat "$HOME/.gituser"
   configure_ssh_agent
 }
@@ -201,6 +202,7 @@ function git_work() {
   ln -nsf "$HOME/.gituser.work" "$HOME/.gituser"
   ln -nsf "$HOME/.ssh/dbrubak1" "$HOME/.ssh/id_rsa"
   ln -nsf "$HOME/.ssh/dbrubak1.pub" "$HOME/.ssh/id_rsa.pub"
+  echo "Current git user:"
   cat "$HOME/.gituser"
   configure_ssh_agent
   /usr/bin/ssh-add "$HOME/.ssh/launchpad_deploy"
