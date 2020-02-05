@@ -5,17 +5,11 @@ alias l1='ls -1'
 alias webs="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 2999, :DocumentRoot => Dir.pwd).start'"
 
 alias bx='bundle exec'
-alias bi='bundle install -j4'
-alias r='bx rake'
 alias g='bx guard'
-alias ts='bx thin start'
-alias mm='bx middleman'
-alias jj='bx jekyll serve --watch'
+alias hs='hugo server --disableLiveReload'
+alias jj='bx jekyll serve'
 alias jjd='jj --drafts'
-alias z='zeus'
-alias zs='zeus start'
-alias zz='zeus server'
-
+alias r='bx rake'
 alias rv='rbenv versions'
 
 alias g-='git co -'
@@ -40,4 +34,3 @@ alias grm='git ls-files -d | xargs git rm; gst'
 alias gsh='git show'
 alias gst='git status --ignore-submodules=dirty'
 
-alias hs='hugo server --disableLiveReload'
