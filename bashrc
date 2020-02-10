@@ -147,6 +147,8 @@ function start_ssh_agent() {
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
   chmod 600 "$SSH_ENV"
   load_ssh_env
+  echo "Forcing SSH agent to start"
+  eval `ssh-agent -s`
   echo "Success! Agent running with PID: $SSH_AGENT_PID"
   echo "Adding default keys"
   /usr/bin/ssh-add
