@@ -147,9 +147,13 @@ function start_ssh_agent() {
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
   chmod 600 "$SSH_ENV"
   load_ssh_env
-  echo "Forcing SSH agent to start"
-  eval `ssh-agent -s`
-  echo "Success! Agent running with PID: $SSH_AGENT_PID"
+  if [[ $(ps -f --no-headers --pid "$SSH_AGENT_PID") ]]; then
+    echo "SSH agent found with PID: $SSH_AGENT_PID"
+  else
+    echo "No SSH agent found with PID: $SSH_AGENT_PID"
+    echo "Forcing SSH agent to start"
+    eval `ssh-agent -s`
+  fi
   echo "Adding default keys"
   /usr/bin/ssh-add
 }
@@ -212,6 +216,7 @@ function git_work() {
 export -f git_work
 
 echo "Primary SSH Key: $(cat ~/.ssh/id_rsa.pub | cut -d ' ' -f 3)"
+configure_ssh_agent
 
 ########################################################################
 # rbenv setup
