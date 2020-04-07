@@ -2,7 +2,7 @@ alias ll='ls -l'
 alias la='ls -la'
 alias l1='ls -1'
 
-alias webs="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 2999, :DocumentRoot => Dir.pwd).start'"
+alias webs="ruby -rwebrick -e 'WEBrick::HTTPServer.new(Port: 2999, DocumentRoot: Dir.pwd).start'"
 
 alias bx='bundle exec'
 alias g='bx guard'
