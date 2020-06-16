@@ -128,11 +128,11 @@ export VISUAL='/usr/bin/vim'
 # Git setup
 ########################################################################
 
-if [ -f ~/bin/git-completion.sh]; then
-  . ~/bin/git-completion.sh
+if [ -f ~/bin/git-completion.sh ]; then
+  source ~/bin/git-completion.sh
 fi
-if [ -f ~/bin/git-prompt.sh]; then
-  . ~/bin/git-prompt.sh
+if [ -f ~/bin/git-prompt.sh ]; then
+  source ~/bin/git-prompt.sh
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
