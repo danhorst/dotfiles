@@ -116,10 +116,27 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='7;31'
+
+export LESS="-R"
 
 export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'
+
+########################################################################
+# Git setup
+########################################################################
+
+if [ -f ~/bin/git-completion.sh]; then
+  . ~/bin/git-completion.sh
+fi
+if [ -f ~/bin/git-prompt.sh]; then
+  . ~/bin/git-prompt.sh
+fi
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export PS1='\w\[\033[31m\]$(__git_ps1 " %s")\[\033[00m\] \$ '
 
 ########################################################################
 # Functions
