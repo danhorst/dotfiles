@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Symlinking dotfiles into $HOME"
-dotfiles_directory="$(pwd)/dotfiles"
+dotfiles_directory="$(pwd)/config"
 ls -1 "$dotfiles_directory" | xargs -i ln -nsf "$dotfiles_directory/{}" "$HOME/.{}"
 
 echo "Symlinking scripts & utilities into $HOME/bin"
