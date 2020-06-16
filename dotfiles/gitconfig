@@ -14,7 +14,7 @@
 	remember = update-index --no-assume-unchanged
 	branch-current = rev-parse --symbolic-full-name --abbrev-ref HEAD
 	number-of-commits-since-master = "! sh -c 'git log master..`git branch-current` --oneline | wc -l | tr -d \" \"'"
-	squash = "! sh -c 'git rebase --interactive HEAD~`git number-of-commits-since-master`'"
+  squash = "! sh -c 'git rebase --interactive HEAD~`git number-of-commits-since-master`'"
 [apply]
 	whitespace = nowarn
 [branch]
