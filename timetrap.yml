@@ -1,9 +1,0 @@
----
-database_file: /Users/dbrubak1/.timetrap.db
-round_in_seconds: 900
-append_notes_delimiter: ' '
-formatter_search_paths:
-- /Users/dbrubak1/.timetrap/formatters
-default_formatter: text
-default_command: 
-auto_checkout: false
