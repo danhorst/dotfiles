@@ -116,7 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='7;31'
 
 export LESS="-R"
