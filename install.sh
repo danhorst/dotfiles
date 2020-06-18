@@ -36,3 +36,8 @@ fi
 
 if [ -d "$HOME/.rbenv" ]; then
   echo "rbenv is already installed"
+else
+  echo "Installing rbenv"
+  git clone https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
+  cd "$HOME/.rbenv" && src/configure && make -C src
+fi
