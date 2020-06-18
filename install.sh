@@ -3,6 +3,7 @@
 if [ "$OSTYPE" = "linux-android" ]; then
   echo "Installing packages for Termux"
   pkg install \
+    clang \
     debianutils \
     git \
     make \
