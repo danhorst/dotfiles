@@ -41,3 +41,17 @@ else
   git clone https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
   cd "$HOME/.rbenv" && src/configure && make -C src
 fi
+
+if [ -f "$HOME/.vim/pack" ]; then
+  echo "Vim packages are already set up"
+else
+  echo "Setting up vim packages"
+  mkdir -p "$HOME/.vim/pack/danhorst/start" "$HOME/.vim/pack/danhorst/opt"
+fi
+
+if [ -f "$HOME/.vim/pack/danhorst/start/fugitive" ]; then
+ echo "Fugative already set up";
+else
+  git clone https://github.com/tpope/vim-fugitive.git "$HOME/.vim/pack/danhorst/start/fugitive"
+  vim -u NONE -c "helptags fugitive/doc" -c q
+fi
