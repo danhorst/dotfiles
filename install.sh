@@ -5,6 +5,7 @@ if [ "$OSTYPE" = "linux-android" ]; then
   pkg install \
     debianutils \
     git \
+    make \
     openssh \
     tree
     vim \
