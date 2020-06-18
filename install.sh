@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$OSTYPE" = "linux-android" ]; then
+  echo "Installing packages for Termux"
+  pkg install debinautils openssh vim git tree
+fi
+
 echo "Symlinking dotfiles into $HOME"
 dotfiles_directory="$(pwd)/config"
 ls -1 "$dotfiles_directory" | xargs -i ln -nsf "$dotfiles_directory/{}" "$HOME/.{}"
