@@ -42,16 +42,25 @@ else
   cd "$HOME/.rbenv" && src/configure && make -C src
 fi
 
-if [ -f "$HOME/.vim/pack" ]; then
+if [ -d "$HOME/.vim/pack" ]; then
   echo "Vim packages are already set up"
 else
   echo "Setting up vim packages"
   mkdir -p "$HOME/.vim/pack/danhorst/start" "$HOME/.vim/pack/danhorst/opt"
 fi
 
-if [ -f "$HOME/.vim/pack/danhorst/start/fugitive" ]; then
- echo "Fugative already set up";
+if [ -d "$HOME/.vim/pack/danhorst/start/fugitive" ]; then
+  echo "Fugative already set up";
 else
+  echo "Installing Fugative"
   git clone https://github.com/tpope/vim-fugitive.git "$HOME/.vim/pack/danhorst/start/fugitive"
   vim -u NONE -c "helptags fugitive/doc" -c q
+fi
+
+if [ -d "$HOME/.vim/pack/danhorst/start/surround" ]; then
+  echo "Surround already set up";
+else
+  echo "Installing surround";
+  git clone https://github.com/tpope/vim-surround.git "$HOME/.vim/pack/danhorst/start/surround"
+  vim -u NONE -c "helptags surround/doc" -c q
 fi
