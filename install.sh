@@ -8,8 +8,9 @@ if [ "$OSTYPE" = "linux-android" ]; then
     git \
     make \
     openssh \
-    tree
-    vim \
+    silversearcher-ag \
+    tree \
+    vim
 
   if [ -d "$HOME/storage" ]; then
     echo "Storage is already set up"
