@@ -42,6 +42,14 @@ else
   cd "$HOME/.rbenv" && src/configure && make -C src
 fi
 
+if [ -d "$HOME/.rbenv/plugins/ruby-build" ]; then
+  echo "ruby-build is already installed"
+else
+  echo "Installing ruby-build"
+  mkdir -p "$HOME/.rbenv/plugins/ruby-build"
+  git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
+fi
+
 if [ -d "$HOME/.vim/pack" ]; then
   echo "Vim packages are already set up"
 else
