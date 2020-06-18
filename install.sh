@@ -2,7 +2,12 @@
 
 if [ "$OSTYPE" = "linux-android" ]; then
   echo "Installing packages for Termux"
-  pkg install debianutils openssh vim git tree
+  pkg install \
+    debianutils \
+    git \
+    openssh \
+    tree
+    vim \
 
   if [ -d "$HOME/storage" ]; then
     echo "Storage is already set up"
@@ -27,3 +32,6 @@ else
   mkdir -p "$HOME/.vim/autoload" "$HOME/.vim/bundle"
   curl -LSso "$HOME/.vim/autoload/pathogen.vim" https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 fi
+
+if [ -d "$HOME/.rbenv" ]; then
+  echo "rbenv is already installed"
