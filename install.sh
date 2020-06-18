@@ -3,6 +3,12 @@
 if [ "$OSTYPE" = "linux-android" ]; then
   echo "Installing packages for Termux"
   pkg install debinautils openssh vim git tree
+
+  if [ -d "$HOME/storage" ]; then
+    echo "Storage is already set up"
+  else
+    termux-setup-storage
+  fi
 fi
 
 echo "Symlinking dotfiles into $HOME"
