@@ -16,6 +16,13 @@ if [ "$OSTYPE" = "linux-android" ]; then
   else
     termux-setup-storage
   fi
+
+  if [ -f "$HOME/.hushlogin" ]; then
+    echo "Login message already suppressed"
+  else
+    echo "Suppressing login message"
+    touch "$HOME/.hushlogin"
+  fi
 fi
 
 echo "Symlinking dotfiles into $HOME"
