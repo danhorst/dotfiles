@@ -34,14 +34,6 @@ mkdir -p "$HOME/bin"
 bin_directory="$(pwd)/bin"
 ls -1 "$bin_directory" | xargs -i ln -nsf "$bin_directory/{}" "$HOME/bin/{}"
 
-if [ -d "$HOME/.vim/bundle" ]; then
-  echo "Pathogen is already installed"
-else
-  echo "Installing Pathogen"
-  mkdir -p "$HOME/.vim/autoload" "$HOME/.vim/bundle"
-  curl -LSso "$HOME/.vim/autoload/pathogen.vim" https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-fi
-
 if [ -d "$HOME/.rbenv" ]; then
   echo "rbenv is already installed"
 else
