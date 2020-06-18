@@ -2,3 +2,4 @@
 dotfiles/lightsky
 bin/uglifyjs
 bin/mvim
+*.swp
