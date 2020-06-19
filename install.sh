@@ -27,7 +27,7 @@ if [ "$OSTYPE" = "linux-android" ]; then
 fi
 
 echo "Symlinking dotfiles into $HOME"
-dotfiles_directory="$(pwd)/config"
+dotfiles_directory="$(pwd)/shell"
 ls -1 "$dotfiles_directory" | xargs -i ln -nsf "$dotfiles_directory/{}" "$HOME/.{}"
 
 echo "Symlinking scripts & utilities into $HOME/bin"
