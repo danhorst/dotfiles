@@ -80,6 +80,12 @@
         { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
         { "command": "paste", "keys": "ctrl+v" },
 
+        // Setting Tab createion & navigation to match browser conventions
+        { "command": "newTab", "keys": "ctrl+t" },
+        { "command": "closeTab", "keys": "ctrl+w" },
+        { "command": "nextTab", "keys": "ctrl+pageup" },
+        { "command": "prevTab", "keys": "ctrl+pagedown" },
+
         // Press Ctrl+Shift+F to open the search box
         { "command": "find", "keys": "ctrl+shift+f" },
 
