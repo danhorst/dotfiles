@@ -1,7 +1,6 @@
 [include]
   path = .gituser
 [alias]
-	ci = commit -v -a
 	st = status
 	rs = reset --hard HEAD
 	ba = branch -a

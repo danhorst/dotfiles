@@ -1,3 +1,6 @@
 [user]
-  name  = Dan Horst
-  email = dbrubak1@nd.edu
+  name    = Dan Horst
+  email   = dbrubak1@nd.edu
+	signkey = EB6E0C4050F7B0E4
+[alias]
+  ci = commit -S -a -v
