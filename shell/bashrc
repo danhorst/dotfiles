@@ -208,6 +208,8 @@ function configure_ssh_agent() {
 # Git config & SSH key management
 ########################################################################
 
+export GPG_TTY=$(tty)
+
 function git_personal() {
   stop_ssh_agent
   ln -nsf "$HOME/.gituser.personal" "$HOME/.gituser"
