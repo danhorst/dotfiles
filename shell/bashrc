@@ -208,7 +208,8 @@ function configure_ssh_agent() {
 # Git config & SSH key management
 ########################################################################
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 function git_personal() {
   stop_ssh_agent
