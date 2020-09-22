@@ -12,6 +12,10 @@ I use them in two contexts:
 1. My work laptop using [Windows Subsystem for Linux][2] (WSL) accessed via [Windows Terminal][3]
 2. My phone using [Termux][4], often paired with a [Bluetooth mechanical keyboard][5] (`vim` works surprisingly well with the on-screen keyboard too)
 
+## TODO
+
+- [ ] [Settings for GPG Agent](https://stackoverflow.com/a/37369506)
+
 [1]: https://www.ruby-lang.org/en/
 [2]: https://docs.microsoft.com/en-us/windows/wsl/about
 [3]: https://docs.microsoft.com/en-us/windows/terminal/
