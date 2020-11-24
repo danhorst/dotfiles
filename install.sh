@@ -26,6 +26,32 @@ if [ "$OSTYPE" = "linux-android" ]; then
   fi
 fi
 
+
+OS="$(lsb_release -i | awk -F '\t' '{print $2}')"
+
+if [[ "$OS" == "Ubuntu" ]]; then
+  echo "Installing packages for Ubuntu"
+  sudo apt install \
+    autoconf \
+    bison \
+    build-essential \
+    libdb-dev \
+    libffi-dev \
+    libgdbm-dev \
+    libgdbm6 \
+    libncurses5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libyaml-dev \
+    postgresql \
+    postgresql-server-dev-12 \
+    silversearcher-ag \
+    sqlite3 \
+    tree \
+    zlib1g-dev
+fi
+
 echo "Symlinking dotfiles into $HOME"
 dotfiles_directory="$(pwd)/shell"
 ls -1 "$dotfiles_directory" | xargs -i ln -nsf "$dotfiles_directory/{}" "$HOME/.{}"
