@@ -27,3 +27,5 @@ alias grm='git ls-files -d | xargs git rm; gst'
 alias gsh='git show'
 alias gst='git status --ignore-submodules=dirty'
 
+alias rld='cd $HOME/git/rocketlabdelta.com && git pull'
+alias ifc='cd $HOME/git/info-central && git pull'
