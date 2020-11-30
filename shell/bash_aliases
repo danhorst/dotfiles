@@ -7,6 +7,7 @@ alias webs="ruby -rwebrick -e 'WEBrick::HTTPServer.new(Port: 2999, DocumentRoot:
 alias bx='bundle exec'
 alias g='bx guard'
 alias hs='hugo server --disableLiveReload'
+alias ff="$HOME/bin/open_in_firefox.sh"
 alias jj='bx jekyll serve'
 alias jjd='jj --drafts'
 alias r='bx rake'
