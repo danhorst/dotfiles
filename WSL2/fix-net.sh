@@ -4,7 +4,7 @@ TMP=`mktemp`
 trap ctrlC INT
 
 removeTempFiles() {
-	rm -f $TMP
+	rm -f "$TMP"
 }
 
 ctrlC() {
@@ -28,12 +28,19 @@ echo "------------------------"
 		echo nameserver $i
 	done
 	tail -n+2 /etc/resolv.conf | grep -v '^nameserver'
-} | tr -d '\r' | tee $TMP
+} | tr -d '\r' | tee "$TMP"
 
-(set -x; sudo cp -i $TMP /etc/resolv.conf)
+if cmp -s "$TMP" /etc/resolv.conf; then
+  echo "resolv.conf does not need to be updated"
+else
+  echo "Installing new resolv.conf"
+  (set -x; sudo cp -i "$TMP" /etc/resolv.conf)
+fi
+
+removeTempFiles
+
+echo "Adjusting interface metric on the Cisco AnyConnect network connection"
 
 cd /mnt/c/Windows/System32
 winUser=`cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g'`
 `cmd.exe "/mnt/C/Users/$winUser/WSL2/fix-net.lnk"`
-
-removeTempFiles
