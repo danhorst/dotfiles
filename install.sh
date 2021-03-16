@@ -49,6 +49,7 @@ if [[ "$OS" == "Ubuntu" ]]; then
     silversearcher-ag \
     sqlite3 \
     tree \
+    ubuntu-wsl \
     zlib1g-dev
 fi
 
