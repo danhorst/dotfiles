@@ -8,3 +8,6 @@ You will have to adjust the target of the shortcut manually after you copy it th
 Once those are in place you can run `fix_net.sh` from _within_ WSL2.
 You will be prompted for a sudo password in WSL 2 and then an Administrator password on the Windows host.
 It _should_ work after that.
+
+The Cisco script was sourced from the Internet which some slight modifications.
+@SteveSchneider put together the Windows parts of it.
