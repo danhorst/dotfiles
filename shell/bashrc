@@ -248,3 +248,15 @@ export LD_LIBRARY_PATH=/opt/oracle/instantclient_19_6
 export ORACLE_HOME=/opt/oracle/instantclient_19_6
 export TNS_ADMIN=/opt/oracle/instantclient_19_6/network/admin
 export OCI_DIR=/usr/local/lib
+
+########################################################################
+# Exercism setup
+########################################################################
+. "$HOME/bin/shell/exercism_completion.bash"
+. "$HOME/.cargo/env"
+
+########################################################################
+# Python Setup
+########################################################################
+
+export PATH="$HOME/.local/bin:$PATH"
