@@ -238,7 +238,7 @@ configure_ssh_agent
 # rbenv setup
 ########################################################################
 
-export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 eval "$(rbenv init -)"
 
 ########################################################################
@@ -254,9 +254,3 @@ export OCI_DIR=/usr/local/lib
 ########################################################################
 . "$HOME/bin/shell/exercism_completion.bash"
 . "$HOME/.cargo/env"
-
-########################################################################
-# Python Setup
-########################################################################
-
-export PATH="$HOME/.local/bin:$PATH"
