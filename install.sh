@@ -53,6 +53,12 @@ if [[ "$OS" == "Ubuntu" ]]; then
     zlib1g-dev
 fi
 
+if [[ "$CODESPACES" == "true" ]]; then
+  echo "Installing packages for GitHub Codespaces"
+  apt install \
+    silversearcher-ag \
+    tree
+
 echo "Symlinking dotfiles into $HOME"
 dotfiles_directory="$(pwd)/shell"
 ls -1 "$dotfiles_directory" | xargs -i ln -nsf "$dotfiles_directory/{}" "$HOME/.{}"
