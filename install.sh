@@ -58,6 +58,7 @@ if [[ "$CODESPACES" == "true" ]]; then
   apt install \
     silversearcher-ag \
     tree
+fi
 
 echo "Symlinking dotfiles into $HOME"
 dotfiles_directory="$(pwd)/shell"
