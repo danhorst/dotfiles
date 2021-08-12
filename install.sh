@@ -29,35 +29,35 @@ fi
 
 OS="$(lsb_release -i | awk -F '\t' '{print $2}')"
 
-if [[ "$OS" == "Ubuntu" ]]; then
-  echo "Installing packages for Ubuntu"
-  sudo apt install \
-    autoconf \
-    bison \
-    build-essential \
-    libdb-dev \
-    libffi-dev \
-    libgdbm-dev \
-    libgdbm6 \
-    libncurses5-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    libssl-dev \
-    libyaml-dev \
-    postgresql \
-    postgresql-server-dev-12 \
-    silversearcher-ag \
-    sqlite3 \
-    tree \
-    ubuntu-wsl \
-    zlib1g-dev
-fi
-
 if [[ "$CODESPACES" == "true" ]]; then
   echo "Installing packages for GitHub Codespaces"
   apt install \
     silversearcher-ag \
     tree
+else
+  if [[ "$OS" == "Ubuntu" ]]; then
+    echo "Installing packages for Ubuntu"
+    sudo apt install \
+      autoconf \
+      bison \
+      build-essential \
+      libdb-dev \
+      libffi-dev \
+      libgdbm-dev \
+      libgdbm6 \
+      libncurses5-dev \
+      libreadline-dev \
+      libsqlite3-dev \
+      libssl-dev \
+      libyaml-dev \
+      postgresql \
+      postgresql-server-dev-12 \
+      silversearcher-ag \
+      sqlite3 \
+      tree \
+      ubuntu-wsl \
+      zlib1g-dev
+  fi
 fi
 
 echo "Symlinking dotfiles into $HOME"
