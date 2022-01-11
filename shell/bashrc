@@ -263,6 +263,11 @@ echo "Primary SSH Key: $(cat ~/.ssh/id_rsa.pub | cut -d ' ' -f 3)"
 configure_ssh_agent
 
 ########################################################################
+# go setup
+########################################################################
+export PATH="/$HOME/go/bin:$PATH:/usr/local/go/bin"
+
+########################################################################
 # rbenv setup
 ########################################################################
 
@@ -283,3 +288,5 @@ export OCI_DIR=/usr/local/lib
 . "$HOME/bin/shell/exercism_completion.bash"
 . "$HOME/.cargo/env"
 fi #end NOT CODESPACES
+
+PYTHONPATH=/usr/lib/git-core
