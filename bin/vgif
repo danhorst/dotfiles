@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Sourced from @edsu https://inkdroid.org/2021/10/21/gif/
+
+USAGE="usage: gif video_file [gif_file]"
+
+video_file=$1
+
+if [ "$video_file" = "" ]; then
+    echo $USAGE
+    exit 1
+elif [ $2 ]; then
+    gif_file=$2
+else
+    gif_file="${video_file%.*}.gif"
+fi
+
+echo "converting ${video_file} to ${gif_file} ..."
+
+ffmpeg -i "${video_file}" -vf "fps=10,scale=1000:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "${gif_file}" -loglevel error
