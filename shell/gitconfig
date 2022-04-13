@@ -36,6 +36,14 @@
 	added = yellow
 	changed = green
 	untracked = magenta
+[core]
+  pager = delta
+[delta]
+  navigate = true  # use n and N to move between diff sections
+[diff]
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only
 [push]
 	default = current
 [filter "media"]
@@ -46,3 +54,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
   required = true
+[merge]
+  conflictstyle = diff3
