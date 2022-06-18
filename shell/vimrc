@@ -3,29 +3,34 @@ filetype plugin indent on
 
 let mapleader=","
 
-set autoindent    " Always set autoindenting on
-set copyindent    " Copy the previous indentation on autoindenting
-set expandtab     " Use spaces instead of tabs
-set hidden        " Allow buffers to be hidden
-set hlsearch      " Highlight search terms
-set ignorecase    " Ignore case when searching
-set incsearch     " Show search matches as you type
-set nobackup      " Backup files are not needed
-set nowrap        " Don't wrap lines
-set number        " Always show line numbers
-set shiftround    " Use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=2  " Number of spaces to use for autoindenting
-set showmatch     " Set show matching parenthesis
-set smartcase     " Ignore case if search pattern is all lowercase, case-sensitive otherwise
-set smarttab      " Insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=2     " A tab is 2 spaces
-set visualbell    " Disable beeps
+set autoindent            " Always set autoindenting on
+set copyindent            " Copy the previous indentation on autoindenting
+set expandtab             " Use spaces instead of tabs
+set hidden                " Allow buffers to be hidden
+set hlsearch              " Highlight search terms
+set ignorecase            " Ignore case when searching
+set incsearch             " Show search matches as you type
+set nobackup              " Backup files are not needed
+set nowrap                " Don't wrap lines
+set number relativenumber " Always show relative line numbers
+set ruler                 " Show line & column number
+set scrolloff=5           " Leave at least five lines below the cursor
+set shiftround            " Use multiple of shiftwidth when indenting with '<' and '>'
+set shiftwidth=2          " Number of spaces to use for autoindenting
+set showmatch             " Set show matching parenthesis
+set smartcase             " Ignore case if search pattern is all lowercase, case-sensitive otherwise
+set smarttab              " Insert tabs on the start of a line according to shiftwidth, not tabstop
+set tabstop=2             " A tab is 2 spaces
+set visualbell            " Disable beeps
 
 " Remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 " Word completion
 set complete+=kspell
+
+" Strongly encourage using movements
+let g:hardtime_default_on = 1
 
 " Save time on EVERY vim command
 nnoremap ; :
@@ -42,6 +47,23 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>w :call TrimWhitespace()
 
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  set wrap
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  set showmode
+  set showcmd
+  set nowrap
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -53,6 +75,10 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+let g:ale_fix_on_save = 1
 
 :autocmd Filetype ruby set sw=2
 :autocmd Filetype ruby set ts=2
