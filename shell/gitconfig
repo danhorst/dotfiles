@@ -1,41 +1,41 @@
 [include]
   path = .gituser
 [alias]
-	ci = commit -v -a
-	st = status
-	rs = reset --hard HEAD
-	ba = branch -a
-	co = checkout
-	delete-merged-branches = "!f() { git branch --merged master | grep -v '\\*' | cut -c3- | sort -u ; }; git branch -d `f`"
-	unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-	unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-	lg = log --graph --pretty=format:'%C(red)%h%Creset — %C(yellow)%s%Creset %d%n          %an, %C(green)(%ar)%Creset'
-	forget = update-index --assume-unchanged
-	remember = update-index --no-assume-unchanged
-	branch-current = rev-parse --symbolic-full-name --abbrev-ref HEAD
-	number-of-commits-since-master = "! sh -c 'git log master..`git branch-current` --oneline | wc -l | tr -d \" \"'"
+  ci = commit -v -a
+  st = status
+  rs = reset --hard HEAD
+  ba = branch -a
+  co = checkout
+  delete-merged-branches = "!f() { git branch --merged master | grep -v '\\*' | cut -c3- | sort -u ; }; git branch -d `f`"
+  unmerged-edit = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  unmerged-add = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  lg = log --graph --pretty=format:'%C(red)%h%Creset — %C(yellow)%s%Creset %d%n          %an, %C(green)(%ar)%Creset'
+  forget = update-index --assume-unchanged
+  remember = update-index --no-assume-unchanged
+  branch-current = rev-parse --symbolic-full-name --abbrev-ref HEAD
+  number-of-commits-since-master = "! sh -c 'git log master..`git branch-current` --oneline | wc -l | tr -d \" \"'"
   squash = "! sh -c 'git rebase --interactive HEAD~`git number-of-commits-since-master`'"
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "branch"]
-	current = red reverse
-	local = red bold
-	remote = yellow
+  current = red reverse
+  local = red bold
+  remote = yellow
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = magenta
+  added = yellow
+  changed = green
+  untracked = magenta
 [core]
   pager = delta
 [delta]
@@ -45,14 +45,14 @@
 [interactive]
   diffFilter = delta --color-only
 [push]
-	default = current
+  default = current
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
   required = true
 [merge]
   conflictstyle = diff3
