@@ -30,3 +30,6 @@ alias gst='git status --ignore-submodules=dirty'
 
 alias rld='cd $HOME/git/rocketlabdelta.com && git pull'
 alias ifc='cd $HOME/git/info-central && git pull'
+
+alias weather='curl wttr.in?format=4'
+alias forecast='curl wttr.in'
