@@ -41,6 +41,7 @@ else
       autoconf \
       bison \
       build-essential \
+      dict-gcide \
       libdb-dev \
       libffi-dev \
       libgdbm-dev \
