@@ -173,6 +173,9 @@ export PROMPT_DIRTRIM=4
 
 else #NOT CODESPACES
 
+# TODO: Improve how functions are loaded
+source "$HOME/git/dotfiles/shell/spell.function"
+
 ###############################################################################
 # SSH agent config
 #
