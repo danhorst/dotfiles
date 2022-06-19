@@ -38,6 +38,7 @@ else
   if [[ "$OS" == "Ubuntu" ]]; then
     echo "Installing packages for Ubuntu"
     sudo apt install \
+      aspell \
       autoconf \
       bison \
       build-essential \
