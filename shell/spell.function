@@ -41,7 +41,7 @@ spell() {
     }
 
     [[ -n "$word" ]] && {
-        printf "$word" | xsel -p
+        printf "$word" | clip.exe # for WSL
         printf "Copied '%s' to clipboard!\n" "$word"
     } || printf "[ $(tput setaf 1):($(tput sgr0) ] %s\n" 'No match found'
 
