@@ -1,65 +1,33 @@
 #!/bin/bash
 
-if [ "$OSTYPE" = "linux-android" ]; then
-  echo "Installing packages for Termux"
-  pkg install \
-    clang \
-    debianutils \
-    git \
-    make \
-    openssh \
-    silversearcher-ag \
-    tree \
-    vim
+echo "Installing packages to support Ruby"
+sudo apt install \
+  autoconf \
+  patch \
+  build-essential \
+  rustc \
+  libssl-dev \
+  libyaml-dev \
+  libreadline6-dev \
+  zlib1g-dev \
+  libgmp-dev \
+  libncurses5-dev \
+  libffi-dev \
+  libgdbm6 \
+  libgdbm-dev \
+  libdb-dev \
+  uuid-dev
 
-  if [ -d "$HOME/storage" ]; then
-    echo "Storage is already set up"
-  else
-    termux-setup-storage
-  fi
-
-  if [ -f "$HOME/.hushlogin" ]; then
-    echo "Login message already suppressed"
-  else
-    echo "Suppressing login message"
-    touch "$HOME/.hushlogin"
-  fi
-fi
-
-
-OS="$(lsb_release -i | awk -F '\t' '{print $2}')"
-
-if [[ "$CODESPACES" == "true" ]]; then
-  echo "Installing packages for GitHub Codespaces"
-  apt install \
-    silversearcher-ag \
-    tree
-else
-  if [[ "$OS" == "Ubuntu" ]]; then
-    echo "Installing packages for Ubuntu"
-    sudo apt install \
-      autoconf \
-      bison \
-      build-essential \
-      dict-gcide \
-      libdb-dev \
-      libffi-dev \
-      libgdbm-dev \
-      libgdbm6 \
-      libncurses5-dev \
-      libreadline-dev \
-      libsqlite3-dev \
-      libssl-dev \
-      libyaml-dev \
-      postgresql \
-      postgresql-server-dev-12 \
-      silversearcher-ag \
-      sqlite3 \
-      tree \
-      ubuntu-wsl \
-      zlib1g-dev
-  fi
-fi
+echo "Installing utilities"
+sudo apt install \
+  bind9-dnsutils \
+  dict \
+  direnv \
+  git \
+  libsqlite3-dev \
+  spell \
+  sqlite3 \
+  tree
 
 echo "Symlinking dotfiles into $HOME"
 dotfiles_directory="$(pwd)/shell"
@@ -86,25 +54,63 @@ else
   git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
 fi
 
+echo ""
+echo "################################################################################"
+echo "# Rust & Crates"
+echo "################################################################################"
+
+rustup default stable
+cargo install bat
+cargo install fd-find
+cargo install git-delta
+cargo install ripgrep
+
+echo ""
+echo "################################################################################"
+echo "# Vim"
+echo "################################################################################"
+
+if [ -L "$HOME/.vim/spell" ]; then
+  echo "Vim spelling is already up"
+else
+  echo "Setting up vim spelling"
+  ln -nsf "$dotfiles_directory/spell" "$HOME/.vim/spell"
+fi
+
+vim_user="dbh"
+vim_startup_plugin_path="$HOME/.vim/pack/$vim_user/start"
+vim_opt_plugin_path="$HOME/.vim/pack/$vim_user/opt"
+
 if [ -d "$HOME/.vim/pack" ]; then
   echo "Vim packages are already set up"
 else
   echo "Setting up vim packages"
-  mkdir -p "$HOME/.vim/pack/danhorst/start" "$HOME/.vim/pack/danhorst/opt"
+  mkdir -p "$vim_startup_plugin_path" "$vim_opt_plugin_path"
 fi
 
-if [ -d "$HOME/.vim/pack/danhorst/start/fugitive" ]; then
-  echo "Fugative already set up";
-else
-  echo "Installing Fugative"
-  git clone https://github.com/tpope/vim-fugitive.git "$HOME/.vim/pack/danhorst/start/fugitive"
-  vim -u NONE -c "helptags fugitive/doc" -c q
-fi
-
-if [ -d "$HOME/.vim/pack/danhorst/start/surround" ]; then
+if [ -d "$vim_startup_plugin_path/surround" ]; then
   echo "Surround already set up";
+  git -C "$vim_startup_plugin_path/surround" pull
 else
   echo "Installing surround";
-  git clone https://github.com/tpope/vim-surround.git "$HOME/.vim/pack/danhorst/start/surround"
+  git clone git@github.com:tpope/vim-surround.git "$vim_startup_plugin_path/surround"
   vim -u NONE -c "helptags surround/doc" -c q
+fi
+
+if [ -d "$vim_startup_plugin_path/tagbar" ]; then
+  echo "tagbar already set up";
+  git -C "$vim_startup_plugin_path/tagbar" pull
+else
+  echo "Installing tagbar";
+  git clone git@github.com:preservim/tagbar.git "$vim_startup_plugin_path/tagbar"
+  vim -u NONE -c "helptags tagbar/doc" -c q
+fi
+
+if [ -d "$vim_startup_plugin_path/vim-ruby" ]; then
+  echo "vim-ruby already set up";
+  git -C "$vim_startup_plugin_path/vim-ruby" pull
+else
+  echo "Installing vim-ruby";
+  git clone git@github.com:vim-ruby/vim-ruby.git "$vim_startup_plugin_path/vim-ruby"
+  vim -u NONE -c "helptags vim-ruby/doc" -c q
 fi
