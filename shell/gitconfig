@@ -38,6 +38,7 @@
   untracked = magenta
 [core]
 	sshCommand = ssh.exe
+	excludesFile = ~/.gitignore
 [push]
   default = current
 [filter "media"]
@@ -48,3 +49,5 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
+[init]
+	defaultBranch = main
