@@ -153,6 +153,14 @@ export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 eval "$(rbenv init -)"
 
 ########################################################################
+# nvm setup
+########################################################################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+########################################################################
 # Rust & utility setup
 ########################################################################
 
@@ -163,3 +171,7 @@ export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 
 eval "$(direnv hook bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

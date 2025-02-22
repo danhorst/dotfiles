@@ -38,6 +38,11 @@ mkdir -p "$HOME/bin"
 bin_directory="$(pwd)/bin"
 ls -1 "$bin_directory" | xargs -i ln -nsf "$bin_directory/{}" "$HOME/bin/{}"
 
+echo ""
+echo "################################################################################"
+echo "# Ruby"
+echo "################################################################################"
+
 if [ -d "$HOME/.rbenv" ]; then
   echo "rbenv is already installed"
 else
@@ -53,6 +58,21 @@ else
   mkdir -p "$HOME/.rbenv/plugins/ruby-build"
   git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
 fi
+
+echo ""
+echo "################################################################################"
+echo "# JavaScript"
+echo "################################################################################"
+
+if [[ $(type -t nvm) == function ]]; then
+  echo "nvm is already installed"
+else
+  echo "Installing NVM"
+  wget -qO- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh" | bash
+fi
+
+# nvm install --lts
+# npm install -g yarn
 
 echo ""
 echo "################################################################################"
