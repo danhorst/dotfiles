@@ -1,5 +1,5 @@
 [include]
-  path = .gituser
+  path = .gituser # https://developer.1password.com/docs/ssh/git-commit-signing/
 [alias]
   ci = commit -v -a
   st = status
