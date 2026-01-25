@@ -25,6 +25,7 @@ sudo apt install \
   direnv \
   git \
   libsqlite3-dev \
+  pandoc \
   spell \
   sqlite3 \
   tree
@@ -80,6 +81,7 @@ echo "# Rust & Crates"
 echo "################################################################################"
 
 rustup default stable
+rustup upgrade
 cargo install bat
 cargo install fd-find
 cargo install git-delta

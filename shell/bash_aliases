@@ -30,3 +30,15 @@ alias gst='git status --ignore-submodules=dirty'
 
 alias rld='cd $HOME/git/rocketlabdelta.com && git pull'
 alias ifc='cd $HOME/git/info-central && git pull'
+
+function ytdl {
+  yt-dlp -S res,ext:mp4:m4a --recode mp4 "$@"
+}
+
+########################################################################
+# 1Password SSH Agent
+########################################################################
+
+alias ssh='ssh.exe'
+alias ssh-add='ssh-add.exe'
+alias scp='scp.exe'
