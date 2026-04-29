@@ -11,7 +11,6 @@ alias ff="$HOME/bin/open_in_firefox.sh"
 alias jj='bx jekyll serve'
 alias jjd='jj --drafts'
 alias r='bx rake'
-alias rv='rbenv versions'
 alias v='vim'
 
 alias ga='git add . && gst'

@@ -41,39 +41,22 @@ ls -1 "$bin_directory" | xargs -i ln -nsf "$bin_directory/{}" "$HOME/bin/{}"
 
 echo ""
 echo "################################################################################"
-echo "# Ruby"
+echo "# mise (runtime version manager)"
 echo "################################################################################"
 
-if [ -d "$HOME/.rbenv" ]; then
-  echo "rbenv is already installed"
+if command -v mise &>/dev/null; then
+  echo "mise is already installed"
 else
-  echo "Installing rbenv"
-  git clone https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
-  cd "$HOME/.rbenv" && src/configure && make -C src
+  echo "Installing mise"
+  curl https://mise.run | sh
 fi
 
-if [ -d "$HOME/.rbenv/plugins/ruby-build" ]; then
-  echo "ruby-build is already installed"
-else
-  echo "Installing ruby-build"
-  mkdir -p "$HOME/.rbenv/plugins/ruby-build"
-  git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
-fi
+echo "Symlinking mise config"
+mkdir -p "$HOME/.config/mise"
+ln -nsf "$(pwd)/config/mise/config.toml" "$HOME/.config/mise/config.toml"
 
-echo ""
-echo "################################################################################"
-echo "# JavaScript"
-echo "################################################################################"
-
-if [[ $(type -t nvm) == function ]]; then
-  echo "nvm is already installed"
-else
-  echo "Installing NVM"
-  wget -qO- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh" | bash
-fi
-
-# nvm install --lts
-# npm install -g yarn
+echo "Installing runtimes via mise"
+"$HOME/.local/bin/mise" install
 
 echo ""
 echo "################################################################################"
