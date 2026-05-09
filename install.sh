@@ -3,27 +3,28 @@
 echo "Installing packages to support Ruby"
 sudo apt install \
   autoconf \
-  patch \
   build-essential \
-  rustc \
-  libssl-dev \
-  libyaml-dev \
-  libreadline6-dev \
-  zlib1g-dev \
+  libdb-dev \
+  libffi-dev \
+  libgdbm-dev \
+  libgdbm6 \
   libgmp-dev \
   libncurses5-dev \
-  libffi-dev \
-  libgdbm6 \
-  libgdbm-dev \
-  libdb-dev \
-  uuid-dev
+  libreadline6-dev \
+  libssl-dev \
+  libyaml-dev \
+  patch \
+  uuid-dev \
+  zlib1g-dev
 
 echo "Installing utilities"
 sudo apt install \
   bind9-dnsutils \
   dict \
   direnv \
+  fzf \
   git \
+  jq \
   libsqlite3-dev \
   pandoc \
   spell \
@@ -65,6 +66,8 @@ echo "##########################################################################
 
 rustup default stable
 rustup upgrade
+# shellcheck source=/dev/null
+. "$HOME/.cargo/env"
 cargo install bat
 cargo install fd-find
 cargo install git-delta
